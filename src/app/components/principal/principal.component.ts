@@ -16,13 +16,13 @@ export class PrincipalComponent implements OnInit {
 
   ngOnInit(): void {
     this._estudiantesNeeService.getEstudiantesNee().subscribe((data: any) => {
-      console.log(data);
+      //console.log(data);
     });
     this._estrategias.getEstrategias().subscribe((data: any) => {
-      console.log(data);
+      //console.log(data);
     });
     this._destrezas.getDestrezas().subscribe((data: any) => {
-      console.log(data);
+      //console.log(data);
     });
   }
 

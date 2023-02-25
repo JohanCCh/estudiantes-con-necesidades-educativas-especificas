@@ -1,1 +1,170 @@
-<p>destrezas works!</p>
+<div class="row p-3 pt-0">
+  <!-- BÚSQUEDA Y CREACIÓN -->
+  <div class="bg-light rounded border-0 py-3">
+    <div class="row">
+      <div class="col-10">
+        <div class="input-group">
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Selección a una destreza para agregarla a la lista..."
+            aria-label="Text input with dropdown button"
+          />
+          <button
+            class="btn btn-outline-secondary"
+            type="button"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+          >
+            <i class="bi-chevron-expand"></i>
+          </button>
+          <ul class="col-12 dropdown-menu dropdown-menu-end">
+            <li class="p-1 px-3">
+              <div class="input-group">
+                <input
+                  type="text"
+                  class="form-control"
+                  placeholder="Buscar..."
+                  aria-label="filtroDestrezas"
+                  [(ngModel)]="filtroDestrezas"
+                />
+                <span class="input-group-text"
+                  ><i class="bi bi-search"></i
+                ></span>
+              </div>
+            </li>
+            <li
+              *ngFor="let item of listaDestrezas | Filtro : filtroDestrezas"
+              class="p-1 list-group-item list-group-item-action"
+            >
+              <a
+                class="dropdown-item text-wrap"
+                (click)="crearDestrezaInformacion(item)"
+              >
+                {{ item.titulo }}
+              </a>
+              <hr class="dropdown-divider" />
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-2">
+        <button
+          type="button"
+          class="btn btn-primary rounded-1"
+          (click)="crearDestreza()"
+        >
+          <i class="bi bi-plus"></i>Añadir Destreza
+        </button>
+      </div>
+    </div>
+  </div>
+  <!-- LISTA DE DESTREZAS -->
+  <div [ngClass]="vistaListaDestrezas.length == 0 ? 'd-none' : ''">
+    <div class="py-3">
+      <span class="p-0">
+        {{ vistaListaDestrezas.length }} destrezas en total
+      </span>
+    </div>
+  </div>
+  <!-- TITULO -->
+  <div
+    class="bg-light rounded border-0 py-3 mb-3"
+    *ngFor="let item of vistaListaDestrezas"
+  >
+    <div>
+      <div class="row align-items-center">
+        <ng-container
+          *ngIf="item.modificado; then entradaVacia; else entradaLlena"
+        ></ng-container>
+        <ng-template #entradaVacia>
+          <!-- ENTRADA VACÍA -->
+          <div class="col-10">
+            <input
+              #tituloDestreza
+              type="text"
+              class="form-control"
+              aria-label="Text input"
+              [value]="item.titulo"
+            />
+          </div>
+          <!-- BOTONES -->
+          <div class="col-2">
+            <div class="row align-items-center">
+              <div class="col-6">
+                <button
+                  type="button"
+                  class="btn btn-primary rounded-1"
+                  (click)="editarDestreza(item.id, tituloDestreza.value)"
+                >
+                  Crear
+                </button>
+              </div>
+              <div class="col-6">
+                <button
+                  type="button"
+                  class="btn btn-outline-primary py-0 px-1"
+                  (click)="eliminarDestreza(item.id)"
+                >
+                  <i class="bi bi-x-lg"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+        </ng-template>
+        <ng-template #entradaLlena>
+          <!-- ENTRADA LLENA -->
+          <div class="col-10">
+            <input
+              type="text"
+              class="form-control"
+              aria-label="Text input"
+              [value]="item.titulo"
+              disabled
+            />
+          </div>
+          <!-- BOTONES -->
+          <div class="col-2">
+            <div class="row align-items-center">
+              <div class="col-6 justify-content-end d-flex">
+                <button
+                  type="button"
+                  class="btn btn-light py-0 px-1 border-1 border-secondary"
+                  (click)="editarModificadorDestreza(item.id)"
+                >
+                  <i class="bi bi-pencil-square fs-6"></i>
+                </button>
+              </div>
+              <div class="col-6 justify-content-start d-flex">
+                <button
+                  type="button"
+                  class="btn btn-light py-0 px-1 border-1 border-secondary"
+                  (click)="eliminarDestreza(item.id)"
+                >
+                  <i class="bi bi-trash fs-6"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+        </ng-template>
+      </div>
+      <!-- COMPETENCIAS -->
+      <div class="py-1">
+        <span class="p-0">Selecciones la/s competencias</span>
+      </div>
+      <div class="d-flex py-3">
+        <div class="d-flex align-items-center" *ngFor="let item of destrezas">
+          <label class="form-check-label pe-2" for="flexCheckDefault">
+            <img src="{{ item.imagencompetencia }}" width="35" height="35" />
+          </label>
+          <input
+            class="form-check-input m-0 me-3"
+            type="checkbox"
+            value=""
+            id="flexCheckDefault"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

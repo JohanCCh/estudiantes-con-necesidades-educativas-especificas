@@ -1,13 +1,21 @@
-.text-size{
-    font-size: 13px;
+.text-size {
+  font-size: 13px;
 }
 
-.max-size-height{
-    min-height: 55px;
+.max-size-height {
+  min-height: 55px;
 }
 
-.max-height-cards{
-    min-height: 180px;
-    display: flex;
-    align-items: center;
+.max-height-cards {
+  min-height: 180px;
+  display: flex;
+  align-items: center;
+}
+
+.nav-link {
+  color: #000;
+}
+
+.modal-height {
+  min-height: 75vh;
 }

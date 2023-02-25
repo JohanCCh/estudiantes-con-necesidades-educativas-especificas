@@ -1,5 +1,5 @@
-<div class="container-fluid bg-light p-5 min-vh-100 text-size">
-  <div class="p-5">
+<div class="container-fluid bg-light px-5 py-1 min-vh-100 text-size">
+  <div class="px-5">
     <div class="card gap-1 p-3 border border-0">
       <!-- CABECERA -->
       <div class="row px-3">
@@ -16,7 +16,7 @@
         </div>
       </div>
       <!-- CUERPO -->
-      <div class="row px-3">
+      <div *ngFor="let item of [1, 2]" class="row px-3">
         <div class="col-11">
           <!-- SUBTITULO -->
           <div class="row">
@@ -327,7 +327,7 @@
   aria-hidden="true"
 >
   <div class="modal-dialog">
-    <div class="modal-content">
+    <div class="modal-content modal-height">
       <!-- CABECERA -->
       <div class="modal-header bg-primary text-white">
         <h5 class="modal-title" id="staticBackdropLabel">
@@ -341,7 +341,124 @@
         ></button>
       </div>
       <!-- CUERPO -->
-      <div class="modal-body">...</div>
+      <div class="modal-body">
+        <ul class="nav nav-pills" id="myTab" role="tablist">
+          <!-- BOTONES -->
+          <li class="nav-item" role="presentation">
+            <button
+              class="nav-link active fw-bold border border-bottom-0 rounded-0 rounded-top"
+              id="nee-tab"
+              data-bs-toggle="tab"
+              data-bs-target="#nee"
+              type="button"
+              role="tab"
+              aria-controls="nee"
+              aria-selected="true"
+            >
+              Estudiantes con NEE
+            </button>
+          </li>
+          <li class="nav-item" role="presentation">
+            <button
+              class="nav-link fw-bold border border-bottom-0 rounded-0 rounded-top"
+              id="destrezas-tab"
+              data-bs-toggle="tab"
+              data-bs-target="#destrezas"
+              type="button"
+              role="tab"
+              aria-controls="destrezas"
+              aria-selected="false"
+            >
+              Destrezas
+            </button>
+          </li>
+          <li class="nav-item d-none" role="presentation">
+            <button
+              class="nav-link fw-bold border border-bottom-0 rounded-0 rounded-top"
+              id="indicadores-tab"
+              data-bs-toggle="tab"
+              data-bs-target="#indicadores"
+              type="button"
+              role="tab"
+              aria-controls="indicadores"
+              aria-selected="false"
+            >
+              Indicadores
+            </button>
+          </li>
+          <li class="nav-item" role="presentation">
+            <button
+              class="nav-link fw-bold border border-bottom-0 rounded-0 rounded-top"
+              id="estrategias-tab"
+              data-bs-toggle="tab"
+              data-bs-target="#estrategias"
+              type="button"
+              role="tab"
+              aria-controls="estrategias"
+              aria-selected="false"
+            >
+              Estrategias
+            </button>
+          </li>
+          <li class="nav-item d-none" role="presentation">
+            <button
+              class="nav-link fw-bold border border-bottom-0 rounded-0 rounded-top"
+              id="actividades-tab"
+              data-bs-toggle="tab"
+              data-bs-target="#actividades"
+              type="button"
+              role="tab"
+              aria-controls="actividades"
+              aria-selected="false"
+            >
+              Actividades
+            </button>
+          </li>
+        </ul>
+        <!-- PAGINAS -->
+        <div class="tab-content py-4" id="myTabContent">
+          <div
+            class="tab-pane fade show active"
+            id="nee"
+            role="tabpanel"
+            aria-labelledby="nee-tab"
+          >
+            <app-estudiantes-nee></app-estudiantes-nee>
+          </div>
+          <div
+            class="tab-pane fade"
+            id="destrezas"
+            role="tabpanel"
+            aria-labelledby="destrezas-tab"
+          >
+            <app-destrezas></app-destrezas>
+          </div>
+          <div
+            class="tab-pane fade"
+            id="indicadores"
+            role="tabpanel"
+            aria-labelledby="indicadores-tab"
+          >
+            indicadores
+          </div>
+          <div
+            class="tab-pane fade"
+            id="estrategias"
+            role="tabpanel"
+            aria-labelledby="estrategias-tab"
+          >
+            <app-estrategias></app-estrategias>
+          </div>
+          <div
+            class="tab-pane fade"
+            id="actividades"
+            role="tabpanel"
+            aria-labelledby="actividades-tab"
+          >
+            actividades
+          </div>
+        </div>
+      </div>
       <!-- PIE DE PAGINA -->
       <div class="modal-footer bg-light">
         <button type="button" class="btn btn-primary">Guardar</button>
