@@ -1,1 +1,435 @@
-<p>estrategias works!</p>
+<div class="row p-3 pt-0">
+  <div class="py-2 pt-0">
+    <span class="p-0"
+      >Estrategias Metodológicas activas para la enseñanza y aprendizaje</span
+    >
+  </div>
+  <!-- LISTA ESTRATEGIAS -->
+  <div
+    class="bg-light rounded border-0 py-3 mb-3"
+    *ngFor="let item of vistaListaEstrategias"
+  >
+    <div>
+      <div class="row align-items-center">
+        <ng-container
+          *ngIf="item.modificado; then entradaVacia; else entradaLlena"
+        ></ng-container>
+        <ng-template #entradaVacia>
+          <!-- ENTRADA VACÍA -->
+          <div class="col-10">
+            <input
+              #tituloDestreza
+              type="text"
+              class="form-control"
+              aria-label="Text input"
+              [value]="item.descripcionestrategia"
+            />
+          </div>
+          <!-- BOTONES -->
+          <div class="col-2">
+            <div class="row align-items-center">
+              <div class="col-6">
+                <button
+                  type="button"
+                  class="btn btn-primary rounded-1"
+                  (click)="
+                    editarEstrategia(
+                      item.idpcpaprendizaje,
+                      tituloDestreza.value
+                    )
+                  "
+                >
+                  Crear
+                </button>
+              </div>
+              <div class="col-6">
+                <button
+                  type="button"
+                  class="btn btn-outline-primary py-0 px-1"
+                  (click)="eliminarEstrategia(item.idpcpaprendizaje)"
+                >
+                  <i class="bi bi-x-lg"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+        </ng-template>
+        <ng-template #entradaLlena>
+          <!-- ENTRADA LLENA -->
+          <div class="col-10">
+            <input
+              type="text"
+              class="form-control"
+              aria-label="Text input"
+              [value]="item.descripcionestrategia"
+              disabled
+            />
+          </div>
+          <!-- BOTONES -->
+          <div class="col-2">
+            <div class="row align-items-center">
+              <div class="col-6 justify-content-end d-flex">
+                <button
+                  type="button"
+                  class="btn btn-light py-0 px-1 border-1 border-secondary"
+                  (click)="editarMopdificadoEstrategia(item.idpcpaprendizaje)"
+                >
+                  <i class="bi bi-pencil-square fs-6"></i>
+                </button>
+              </div>
+              <div class="col-6 justify-content-start d-flex">
+                <button
+                  type="button"
+                  class="btn btn-light py-0 px-1 border-1 border-secondary"
+                  (click)="eliminarEstrategia(item.idpcpaprendizaje)"
+                >
+                  <i class="bi bi-trash fs-6"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+        </ng-template>
+        <!-- ACTIVIDADES -->
+        <div
+          class="p-3 pb-0 container-fluid"
+          *ngFor="let itemA of item.estrategiaActividades"
+        >
+          <div class="card p-3">
+            <div class="row align-items-center">
+              <ng-container
+                *ngIf="
+                  itemA.modificado;
+                  then entradaVaciaActividad;
+                  else entradaLlenaActividad
+                "
+              ></ng-container>
+              <ng-template #entradaVaciaActividad>
+                <!-- ENTRADA VACÍA -->
+                <div class="col-10">
+                  <input
+                    #tituloActividad
+                    type="text"
+                    class="form-control"
+                    aria-label="Text input"
+                    [value]="itemA.descripcionestrategiasactividades"
+                  />
+                </div>
+                <!-- BOTONES -->
+                <div class="col-2">
+                  <div class="row align-items-center">
+                    <div class="col-6">
+                      <button
+                        type="button"
+                        class="btn btn-primary rounded-1"
+                        (click)="
+                          editarActividad(
+                            item.idpcpaprendizaje,
+                            itemA.idestrategiasactividades,
+                            tituloActividad.value
+                          )
+                        "
+                      >
+                        Crear
+                      </button>
+                    </div>
+                    <div class="col-6">
+                      <button
+                        type="button"
+                        class="btn btn-outline-primary py-0 px-1"
+                        (click)="
+                          eliminarActividad(
+                            item.idpcpaprendizaje,
+                            itemA.idestrategiasactividades
+                          )
+                        "
+                      >
+                        <i class="bi bi-x-lg"></i>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+                <!-- DOCUMENTOS Y ENLACES -->
+                <!-- DOCUMENTOS -->
+                <div class="pb-1" *ngFor="let itemD of itemA.documentos">
+                  <div class="col-10 px-3 pt-2">
+                    <div class="row align-items-center">
+                      <div
+                        class="d-flex bg-secondary bg-opacity-10 p-0 justify-content-start rounded"
+                      >
+                        <!-- ICONO -->
+                        <div class="p-0">
+                          <button
+                            type="button"
+                            class="btn btn-primary py-0 px-1 border-1 border-secondary"
+                          >
+                            <i class="bi bi-file-earmark text-light"></i>
+                          </button>
+                        </div>
+                        <!-- NOMBRE -->
+                        <div class="p-0 ps-1 w-100">
+                          <span class="p-0">{{
+                            obtenerNombreUrl(itemD.urldocumento)
+                          }}</span>
+                        </div>
+                        <!-- ELIMINAR -->
+                        <div class="p-0">
+                          <button
+                            type="button"
+                            class="btn btn-primary py-0 px-1 bg-secondary bg-opacity-10 border-0"
+                            (click)="
+                              eliminarDocumento(
+                                item.idpcpaprendizaje,
+                                itemA.idestrategiasactividades,
+                                itemD.idtipodocumento
+                              )
+                            "
+                          >
+                            <i class="bi bi-x text-primary"></i>
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- ENLACES -->
+                <div class="pb-1" *ngFor="let itemEn of itemA.enlaces">
+                  <div class="col-10 px-3 pt-2">
+                    <div class="row align-items-center">
+                      <div
+                        class="d-flex bg-secondary bg-opacity-10 p-0 justify-content-start rounded"
+                      >
+                        <!-- ICONO -->
+                        <div class="p-0">
+                          <button
+                            type="button"
+                            class="btn btn-primary py-0 px-1 border-1 border-secondary"
+                          >
+                            <i class="bi bi-link-45deg text-light"></i>
+                          </button>
+                        </div>
+                        <!-- NOMBRE -->
+                        <div class="p-0 ps-1 w-100">
+                          <span class="p-0">{{
+                            obtenerNombreSitio(itemEn.urlenlace)
+                          }}</span>
+                        </div>
+                        <!-- ELIMINAR -->
+                        <div class="p-0">
+                          <button
+                            type="button"
+                            class="btn btn-primary py-0 px-1 bg-secondary bg-opacity-10 border-0"
+                            (click)="
+                              eliminarEnlace(
+                                item.idpcpaprendizaje,
+                                itemA.idestrategiasactividades,
+                                itemEn.idtipodocumento
+                              )
+                            "
+                          >
+                            <i class="bi bi-x text-primary"></i>
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- ENTRADA DE DOCUMENTO Y ENLACE -->
+                <div class="col-10 pt-3">
+                  <div class="row">
+                    <!-- DOCUMENTO -->
+                    <div
+                      class="d-flex justify-content-center align-items-center mb-3"
+                    >
+                      <div class="group-photo">
+                        <div class="custom-input-file container-photo">
+                          <div class="img-profile"></div>
+                          <div
+                            class="d-flex flex-column justify-content-center align-items-center mt-2"
+                          >
+                            <i
+                              class="bi bi-upload text-warning group-photo"
+                            ></i>
+                            <span class="text-warning group-photo"
+                              >Subir archivo</span
+                            >
+                          </div>
+                          <input
+                            type="file"
+                            id="file"
+                            class="input-file input-img"
+                            accept=".jpg,.png"
+                            multiple
+                            (change)="
+                              guardaUrlImagen(
+                                $event,
+                                item.idpcpaprendizaje,
+                                itemA.idestrategiasactividades
+                              )
+                            "
+                          />
+                          <input type="hidden" name="fileHidden" />
+                        </div>
+                      </div>
+                    </div>
+                    <!-- ENLACE -->
+                    <div class="input-group mb-3">
+                      <input
+                        #enlaceActividad
+                        id="enlaceActividad"
+                        type="text"
+                        class="form-control"
+                        placeholder="Pegar link del enlace"
+                        aria-label="Pegar link del enlace"
+                        aria-describedby="button-addon2"
+                      />
+                      <button
+                        class="btn btn-primary"
+                        type="button"
+                        id="button-addon2"
+                        (click)="
+                          guardaEnlace(
+                            enlaceActividad.value,
+                            item.idpcpaprendizaje,
+                            itemA.idestrategiasactividades
+                          )
+                        "
+                      >
+                        Agregar
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </ng-template>
+              <ng-template #entradaLlenaActividad>
+                <!-- ENTRADA LLENA -->
+                <div class="row">
+                  <div class="col-10">
+                    <input
+                      type="text"
+                      class="form-control"
+                      aria-label="Text input"
+                      [value]="itemA.descripcionestrategiasactividades"
+                      disabled
+                    />
+                  </div>
+                  <!-- BOTONES -->
+                  <div class="col-2">
+                    <div class="row align-items-center">
+                      <div class="col-6 justify-content-end d-flex">
+                        <button
+                          type="button"
+                          class="btn btn-light py-0 px-1 border-1 border-secondary"
+                          (click)="
+                            editarModificarActividad(
+                              item.idpcpaprendizaje,
+                              itemA.idestrategiasactividades
+                            )
+                          "
+                        >
+                          <i class="bi bi-pencil-square fs-6"></i>
+                        </button>
+                      </div>
+                      <div class="col-6 justify-content-start d-flex">
+                        <button
+                          type="button"
+                          class="btn btn-light py-0 px-1 border-1 border-secondary"
+                          (click)="
+                            eliminarActividad(
+                              item.idpcpaprendizaje,
+                              itemA.idestrategiasactividades
+                            )
+                          "
+                        >
+                          <i class="bi bi-trash fs-6"></i>
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- DOCUMENTOS Y ENLACES -->
+                  <!-- DOCUMENTOS -->
+                  <div class="pb-1" *ngFor="let itemD of itemA.documentos">
+                    <div class="col-10 px-3 pt-2">
+                      <div class="row align-items-center">
+                        <div
+                          class="d-flex bg-secondary bg-opacity-10 p-0 justify-content-start rounded"
+                        >
+                          <div class="p-0">
+                            <button
+                              type="button"
+                              class="btn btn-primary py-0 px-1 border-1 border-secondary"
+                            >
+                              <i class="bi bi-file-earmark text-light"></i>
+                            </button>
+                          </div>
+                          <div class="p-0 ps-1">
+                            <span class="p-0">{{
+                              obtenerNombreUrl(itemD.urldocumento)
+                            }}</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- ENLACES -->
+                  <div class="pb-1" *ngFor="let itemEn of itemA.enlaces">
+                    <div class="col-10 px-3 pt-2">
+                      <div class="row align-items-center">
+                        <div
+                          class="d-flex bg-secondary bg-opacity-10 p-0 justify-content-start rounded"
+                        >
+                          <div class="p-0">
+                            <button
+                              type="button"
+                              class="btn btn-primary py-0 px-1 border-1 border-secondary"
+                            >
+                              <i class="bi bi-link-45deg text-light"></i>
+                            </button>
+                          </div>
+                          <div class="p-0 ps-1">
+                            <span class="p-0">{{
+                              obtenerNombreSitio(itemEn.urlenlace)
+                            }}</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </ng-template>
+            </div>
+          </div>
+        </div>
+        <!-- BOTÓN AÑADIR DATOS -->
+        <div class="row">
+          <div class="justify-content-start d-flex py-3">
+            <button
+              type="button"
+              class="btn btn-primary"
+              (click)="crearActividad(item.idpcpaprendizaje)"
+            >
+              <i class="bi bi-plus"></i>Añadir Actividad
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- BOTÓN AÑADIR ESTRATEGIA -->
+  <div class="row">
+    <div class="">
+      <button
+        type="button"
+        class="btn btn-outline-primary fw-bold w-100"
+        (click)="crearEstrategias()"
+      >
+        <i class="bi bi-plus"></i>Añadir estrategia
+      </button>
+    </div>
+  </div>
+  <!-- BOTÓN AÑADIR DATOS -->
+  <div class="row">
+    <div class="justify-content-end d-flex py-3" (click)="agregarDatos()">
+      <button type="button" class="btn btn-primary">Añadir Datos</button>
+    </div>
+  </div>
+</div>

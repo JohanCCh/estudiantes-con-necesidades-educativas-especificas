@@ -9,7 +9,7 @@
           4. Estudiantes con necesidades educativas específicas
           <i class="bi bi-info-circle mx-3 fs-5"></i>
         </div>
-        <div class="col-1 justify-content-center">
+        <div class="col-1 justify-content-center d-flex">
           <i
             class="bi bi-chat-dots mx-3 fs-4 text-secondary text-opacity-25"
           ></i>
@@ -287,12 +287,12 @@
           <div
             class="row flex-column justify-content-center align-items-center h-100 gap-2"
           >
-            <div>
+            <div class="justify-content-center d-flex">
               <button type="button" class="btn btn-light py-0 px-1 rounded-1">
                 <i class="bi bi-pencil-square fs-5"></i>
               </button>
             </div>
-            <div>
+            <div class="justify-content-center d-flex">
               <button type="button" class="btn btn-light py-0 px-1 rounded-1">
                 <i class="bi bi-trash fs-5"></i>
               </button>
@@ -372,7 +372,7 @@
               Destrezas
             </button>
           </li>
-          <li class="nav-item d-none" role="presentation">
+          <li class="nav-item" role="presentation">
             <button
               class="nav-link fw-bold border border-bottom-0 rounded-0 rounded-top"
               id="indicadores-tab"
@@ -382,6 +382,7 @@
               role="tab"
               aria-controls="indicadores"
               aria-selected="false"
+              disabled
             >
               Indicadores
             </button>
@@ -400,7 +401,7 @@
               Estrategias
             </button>
           </li>
-          <li class="nav-item d-none" role="presentation">
+          <li class="nav-item" role="presentation">
             <button
               class="nav-link fw-bold border border-bottom-0 rounded-0 rounded-top"
               id="actividades-tab"
@@ -410,6 +411,7 @@
               role="tab"
               aria-controls="actividades"
               aria-selected="false"
+              disabled
             >
               Actividades
             </button>
@@ -461,7 +463,14 @@
       </div>
       <!-- PIE DE PAGINA -->
       <div class="modal-footer bg-light">
-        <button type="button" class="btn btn-primary">Guardar</button>
+        <button
+          type="button"
+          class="btn btn-primary"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        >
+          Guardar
+        </button>
       </div>
     </div>
   </div>

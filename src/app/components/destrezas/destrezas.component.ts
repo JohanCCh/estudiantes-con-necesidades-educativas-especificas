@@ -68,7 +68,7 @@ export class DestrezasComponent implements OnInit {
 
   //editar el modificador de la destreza
   editarModificadorDestreza(id: number) {
-    console.log('editarModificador');
+    //console.log('editarModificador');
     this.vistaListaDestrezas = this.vistaListaDestrezas.map(item => {
       if (item.id === id) {
         item.modificado = true;

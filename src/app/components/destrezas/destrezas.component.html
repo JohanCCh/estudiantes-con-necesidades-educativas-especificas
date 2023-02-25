@@ -60,6 +60,7 @@
     </div>
   </div>
   <!-- LISTA DE DESTREZAS -->
+  <!-- TITULO -->
   <div [ngClass]="vistaListaDestrezas.length == 0 ? 'd-none' : ''">
     <div class="py-3">
       <span class="p-0">
@@ -67,7 +68,7 @@
       </span>
     </div>
   </div>
-  <!-- TITULO -->
+  <!-- LISTA -->
   <div
     class="bg-light rounded border-0 py-3 mb-3"
     *ngFor="let item of vistaListaDestrezas"

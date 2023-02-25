@@ -22,7 +22,7 @@ export class EstudiantesNeeComponent implements OnInit {
   getEstudiantesNee() {
     this.listaEstudiantesNee = [];
     this._estudianteNee.getEstudiantesNee().subscribe((data: any) => {
-      console.log(data);
+      //console.log(data);
       this.listaEstudiantesNee = data;
     });
   }

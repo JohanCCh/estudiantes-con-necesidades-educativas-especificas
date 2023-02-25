@@ -3,6 +3,7 @@ export interface Estrategias {
     estrategiaActividades: EstrategiaActividades[];
     idpcpaprendizaje: number;
     idpcpestrategiasaprendizaje: number;
+    modificado: boolean;
 }
 
 export interface EstrategiaActividades {
@@ -10,6 +11,7 @@ export interface EstrategiaActividades {
     documentos: Documento[];
     enlaces: Enlace[];
     idestrategiasactividades: number;
+    modificado: boolean;
 }
 
 export interface Documento {
