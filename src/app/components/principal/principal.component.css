@@ -1,0 +1,13 @@
+.text-size{
+    font-size: 13px;
+}
+
+.max-size-height{
+    min-height: 55px;
+}
+
+.max-height-cards{
+    min-height: 180px;
+    display: flex;
+    align-items: center;
+}
