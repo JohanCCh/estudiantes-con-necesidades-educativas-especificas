@@ -24,7 +24,7 @@ export class EstrategiasComponent implements OnInit {
   getEstrategias() {
     this.listaEstrategias = [];
     this._estrategias.getEstrategias().subscribe((data: any) => {
-      console.log(data);
+      //console.log(data);
       data.map((item: Estrategias) => {
         item.estrategiaActividades.map((itemA: any) => {
           this.listaEstrategias.push({
@@ -42,7 +42,7 @@ export class EstrategiasComponent implements OnInit {
           });
         });
       });
-      console.log(this.listaEstrategias);
+      //console.log(this.listaEstrategias);
     });
   }
 

@@ -16,7 +16,7 @@
         </div>
       </div>
       <!-- CUERPO -->
-      <div *ngFor="let item of [1, 2]" class="row px-3">
+      <div *ngFor="let item of [1,2]" class="row px-3">
         <div class="col-11">
           <!-- SUBTITULO -->
           <div class="row">
@@ -44,8 +44,11 @@
           </div>
           <!-- TARJETAS -->
           <div class="row py-1">
-            <div class="col-3 px-1 ps-0">
-              <div class="bg-primary bg-opacity-10 py-2 px-3 max-size-height">
+            <div class="col-xl-3 col-md-4 col-12 px-1 ps-0">
+              <!-- TITULO -->
+              <div
+                class="container bg-primary bg-opacity-10 py-2 px-3 max-size-height"
+              >
                 <span
                   class="justify-content-center align-items-center fw-bold d-flex"
                 >
@@ -53,15 +56,17 @@
                   <i class="bi bi-info-circle mx-3 fs-5 text-primary"></i
                 ></span>
               </div>
+              <!-- CUERPO -->
               <div class="card mt-1">
                 <div class="max-height-cards">
                   <div class="row m-0 py-2 px-3">
-                    <span class="p-0">
+                    <span class="p-0 text-wrap">
                       Reconocer y diferenciar triángulos sus elementos a partir
                       del análisis de sus características, y determinar el
                       Perímetro por estimación y/o medición.
                       <strong>M.2.2.6.</strong>
                     </span>
+                    <!-- COMPOTENCIAS -->
                     <div class="container-fluid align-content-end p-0">
                       <div class="d-flex py-3">
                         <img
@@ -93,7 +98,8 @@
                 </div>
               </div>
             </div>
-            <div class="col-3 px-1">
+            <div class="col-xl-3 col-md-4 col-12 px-1">
+              <!-- TITULO -->
               <div class="bg-primary bg-opacity-10 py-2 px-3 max-size-height">
                 <span
                   class="justify-content-center align-items-center fw-bold d-flex"
@@ -102,13 +108,15 @@
                   <i class="bi bi-info-circle mx-3 fs-5 text-primary"></i
                 ></span>
               </div>
+              <!-- CUERPO -->
               <div class="card mt-1">
                 <div class="max-height-cards">
                   <div class="row m-0 py-2 px-3">
-                    <span class="p-0">
+                    <span class="p-0 text-wrap">
                       Identifica elementos básicos de la Geometría en cuerpos y
                       figuras geométricas. <strong>(1.2., S.2.)</strong>
                     </span>
+                    <!-- COMPETENCIAS -->
                     <div class="container-fluid align-content-end p-0">
                       <div class="d-flex py-3">
                         <img
@@ -140,7 +148,8 @@
                 </div>
               </div>
             </div>
-            <div class="col-3 px-1">
+            <div class="col-xl-3 col-md-4 col-12 px-1">
+              <!-- TITULO -->
               <div class="bg-primary bg-opacity-10 py-2 px-3 max-size-height">
                 <span
                   class="justify-content-center align-items-center fw-bold d-flex"
@@ -149,14 +158,16 @@
                   <i class="bi bi-info-circle mx-3 fs-5 text-primary"></i
                 ></span>
               </div>
+              <!-- CUERPO -->
               <div class="card mt-1">
                 <div class="max-height-cards">
                   <div class="row m-0 py-2 px-3">
                     <span class="p-0 fw-bold"> Construcción </span>
-                    <span class="p-0">
+                    <span class="p-0 text-wrap">
                       Plantear otros ejemplos y responder preguntas para
                       descubrir el patrón que forma cada secuencia.</span
                     >
+                    <!-- COMPETENCIAS -->
                     <div class="container-fluid align-content-end p-0 d-none">
                       <div class="d-flex py-3">
                         <img
@@ -188,7 +199,8 @@
                 </div>
               </div>
             </div>
-            <div class="col-3 px-1">
+            <div class="col-xl-3 col-md-4 col-12 px-1">
+              <!-- TITULO -->
               <div class="bg-primary bg-opacity-10 py-2 px-3 max-size-height">
                 <span
                   class="justify-content-center align-items-center fw-bold d-flex"
@@ -197,75 +209,33 @@
                   <i class="bi bi-info-circle mx-3 fs-5 text-primary"></i
                 ></span>
               </div>
+              <!-- CUERPO -->
               <div class="card mt-1">
                 <div class="max-height-cards">
                   <div class="row m-0 py-2 px-3">
-                    <span class="p-0 fw-bold">
+                    <span class="p-0 fw-bold text-wrap">
                       Técnica Observación/Rubrica
                     </span>
-                    <span class="p-0">
+                    <span class="p-0 text-wrap">
                       La presentación de la parte de Matemática tiene un
                       promedio de 10.00 pt
                     </span>
-                    <div class="container-fluid p-0 d-none">
-                      <div class="d-flex py-3">
-                        <img
-                          src="https://ivistorage.blob.core.windows.net/file-container/c1.png"
-                          width="35"
-                          height="35"
-                        />
-                        <img
-                          src="https://ivistorage.blob.core.windows.net/file-container/c2.png"
-                          width="35"
-                          height="35"
-                          class="ps-1"
-                        />
-                        <img
-                          src="https://ivistorage.blob.core.windows.net/file-container/c3.png"
-                          width="35"
-                          height="35"
-                          class="ps-1"
-                        />
-                        <img
-                          src="https://ivistorage.blob.core.windows.net/file-container/c4.png"
-                          width="35"
-                          height="35"
-                          class="ps-1"
-                        />
-                      </div>
-                    </div>
+                    <!-- DOCUMENTOS Y ENLACES -->
                     <div class="py-3 px-0 container-fluid">
-                      <div class="pb-1">
+                      <div class="pb-1" *ngFor="let item of [1, 2]">
                         <div class="d-flex bg-secondary bg-opacity-10">
+                          <!-- ICONO -->
                           <div
-                            class="col-1 px-1 py-0 bg-primary rounded-1 align-items-center d-flex"
+                            class="px-1 py-0 bg-primary rounded-1 align-items-center d-flex"
                           >
                             <i class="bi bi-file-earmark text-light"></i>
                           </div>
-                          <div class="col-10 p-0 ps-1">
+                          <!-- NOMBRE -->
+                          <div class="p-0 ps-1 w-100">
                             <a href=""> Archivo adjun...</a>
                           </div>
-                          <div class="col-1 p-0">
-                            <button
-                              type="button"
-                              class="btn btn-light px-1 py-0 rounded-1 border"
-                            >
-                              <i class="bi bi-download"></i>
-                            </button>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="pb-1">
-                        <div class="d-flex bg-secondary bg-opacity-10">
-                          <div
-                            class="col-1 px-1 py-0 bg-primary rounded-1 align-items-center d-flex"
-                          >
-                            <i class="bi bi-file-earmark text-light"></i>
-                          </div>
-                          <div class="col-10 p-0 ps-1">
-                            <a href=""> Archivo adjun...</a>
-                          </div>
-                          <div class="col-1 p-0">
+                          <!-- BOTÓN -->
+                          <div class="p-0">
                             <button
                               type="button"
                               class="btn btn-light px-1 py-0 rounded-1 border"
@@ -344,6 +314,7 @@
       <div class="modal-body">
         <ul class="nav nav-pills" id="myTab" role="tablist">
           <!-- BOTONES -->
+          <!-- NEE -->
           <li class="nav-item" role="presentation">
             <button
               class="nav-link active fw-bold border border-bottom-0 rounded-0 rounded-top"
@@ -358,6 +329,7 @@
               Estudiantes con NEE
             </button>
           </li>
+          <!-- DESTREZAS -->
           <li class="nav-item" role="presentation">
             <button
               class="nav-link fw-bold border border-bottom-0 rounded-0 rounded-top"
@@ -372,6 +344,7 @@
               Destrezas
             </button>
           </li>
+          <!-- INDICADORES -->
           <li class="nav-item" role="presentation">
             <button
               class="nav-link fw-bold border border-bottom-0 rounded-0 rounded-top"
@@ -387,6 +360,7 @@
               Indicadores
             </button>
           </li>
+          <!-- ESTRATEGIAS -->
           <li class="nav-item" role="presentation">
             <button
               class="nav-link fw-bold border border-bottom-0 rounded-0 rounded-top"
@@ -401,6 +375,7 @@
               Estrategias
             </button>
           </li>
+          <!-- ACTIVIDADES -->
           <li class="nav-item" role="presentation">
             <button
               class="nav-link fw-bold border border-bottom-0 rounded-0 rounded-top"
